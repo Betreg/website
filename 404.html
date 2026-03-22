@@ -16,101 +16,147 @@
             src: url('http://font.betreg.org/fonts/inter/Inter-Regular.woff2') format('truetype');
         }
 
-*{
-    --size-multiplier: 1.2;
-}
 
-        h1 {
-            font-family: 'Plus Jakarta Sans';
-            line-height: 0.9;
-            font-size: calc(3em * var(--size-multiplier));
+        * {
+            --size-multiplier: 1.2;
         }
 
-        p {
-            font-size: 2em;
+        @media only screen and (max-width: 900px) {
+
+            * {
+                --size-multiplier: 1;
+            }
         }
 
-        body {
-            background-color: #d8d8d8;
-            color: #262626;
-            padding: 10vmin;
-            margin: 0;
-            box-sizing: border-box;
-            height: 100vh;
-            font-family: 'Inter';
+        @media only screen and (max-width: 750px) {
+
+            * {
+                --size-multiplier: 0.8;
+            }
         }
 
-        div {
-            width: 100%;
-            height: 100%;
-            /* ← fill the body */
-            display: flex;
-            align-items: stretch;
-        }
+        @media only screen and (max-width: 500px) {
 
-        div span span {
-            display: flex;
-            gap: 2em;
-            align-items: center;
-            position: absolute;
-            bottom: 10vmin;
-        }
+            * {
+                --size-multiplier: 0.6;
+            }
 
-        a{
-            color: #1a73e8;
-            font-size: 1.1em;
-        }
+            .card{
+                width: 100% !important;
+                height: 50% !important;
+                display: block !important;
+            }
 
-        div span,
-        div img {
-            width: 50%;
-        }
+            
+            .holder{
+                display: block !important;
+                align-items: unset !important;
 
-        div img {
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-        }
+            }
 
-        .button {
-    display: inline-block;
-            cursor: pointer;
-            user-select: none;
-            outline: none;
-            border: none;
-            background: #262626;
-            --squircle-smooth: 0.6;
-            --squircle-radius: 24px;
-            mask-image: paint(squircle);
-            transition: 150ms;
-        }
-        .button a{
-            font-family: "Inter", sans-serif;
-            font-size: calc(1em * var(--size-multiplier));
-            text-decoration: none;
-            display: inline-block;
-            padding: 0.6em 1em;
-            color: white;
+            .actions{
+                position: static !important;
+                bottom: unset !important;
+                display: block  !important;
+                height: fit-content !important;
+            }
 
         }
 
-        ::selection {
-            background: #262626;
-            color: white;
-        }
+            h1 {
+                font-family: 'Plus Jakarta Sans';
+                line-height: 0.9;
+                font-size: calc(3em * var(--size-multiplier));
+            }
+
+            p {
+                font-size: calc(1.8em * var(--size-multiplier));
+                ;
+            }
+
+            body {
+                background-color: #d8d8d8;
+                color: #262626;
+                padding: 10vmin;
+                margin: 0;
+                box-sizing: border-box;
+                height: 100vh;
+                font-family: 'Inter';
+                overflow: hidden;
+            }
+
+            .holder {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: stretch;
+            }
+
+            .actions {
+                display: flex;
+                gap: 2em;
+                align-items: center;
+                position: absolute;
+                bottom: 10vmin;
+                height: fit-content;
+                width: auto;
+            }
+
+            a {
+                color: #1a73e8;
+                font-size: 0.9em;
+            }
+
+            .card{
+                width: 50%;
+                height: 100%;
+            }
+
+            img.card {
+                object-fit: contain;
+                object-position: center;
+            }
+
+            .button {
+                display: inline-block;
+                cursor: pointer;
+                user-select: none;
+                outline: none;
+                border: none;
+                background: #262626;
+                --squircle-smooth: 0.6;
+                --squircle-radius: 24px;
+                mask-image: paint(squircle);
+                transition: 150ms;
+            }
+
+            .button a {
+                font-family: "Inter", sans-serif;
+                font-size: 1em;
+                text-decoration: none;
+                display: inline-block;
+                padding: 0.6em 1em;
+                color: white;
+
+            }
+
+            ::selection {
+                background: #262626;
+                color: white;
+            }
     </style>
 </head>
 
 <body>
-    <div>
-        <span>
+    <div class="holder">
+        <span class="card">
             <h1>Požadovaná stránka nebyla nalezena</h1>
-            <p>Je možné že byla přesunuta na novou doménu, nebo že byla odstraněna.</p>
-            <span>
+            <p>Je možné, že byla přesunuta na novou doménu, nebo že byla odstraněna.</p>
+            <span class="actions">
                 <button class="button"><a href="https://betreg.org">Domů →</a></button>
                 <a href="mailto:info@betreg.org">info@betreg.org</a></span>
         </span>
-        <img src="./assets/confused chiken.svg"></img>
+        <img class="card" src="./assets/confused chiken.svg"></img>
     </div>
 
     <script defer>
