@@ -1,14 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Betreg</title>
-</head>
-<body>
-    
+    <title>Chyba 404 – Stránka nebyla nalezena</title>
+    <style>
+        @font-face {
+            font-family: 'Plus Jakarta Sans';
+            src: url('https://font.betreg.org/fonts/plus-jakarta/PlusJakartaSans-Bold.ttf') format('truetype');
+        }
 
-    <script src="main.js"></script>
+        @font-face {
+            font-family: 'Inter';
+            src: url('https://font.betreg.org/fonts/inter/Inter-Regular.woff2') format('truetype');
+        }
+
+
+        * {
+            --size-multiplier: 1.2;
+        }
+
+        @media only screen and (max-width: 900px) {
+
+            * {
+                --size-multiplier: 1;
+            }
+        }
+
+        @media only screen and (max-width: 750px) {
+
+            * {
+                --size-multiplier: 0.8;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+
+            * {
+                --size-multiplier: 0.6;
+            }
+
+            .card{
+                width: 100% !important;
+                height: 50% !important;
+                display: block !important;
+            }
+
+            
+            .holder{
+                display: block !important;
+                align-items: unset !important;
+
+            }
+
+            .actions{
+                position: static !important;
+                bottom: unset !important;
+                display: block  !important;
+                height: fit-content !important;
+            }
+
+        }
+
+            h1 {
+                font-family: 'Plus Jakarta Sans';
+                line-height: 0.9;
+                font-size: calc(3em * var(--size-multiplier));
+            }
+
+            p {
+                font-size: calc(1.8em * var(--size-multiplier));
+                ;
+            }
+
+            body {
+                background-color: #d8d8d8;
+                color: #262626;
+                padding: 10vmin;
+                margin: 0;
+                box-sizing: border-box;
+                height: 100vh;
+                font-family: 'Inter';
+                overflow: hidden;
+            }
+
+            .holder {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: stretch;
+            }
+
+            .actions {
+                display: flex;
+                gap: 2em;
+                align-items: center;
+                position: absolute;
+                bottom: 10vmin;
+                height: fit-content;
+                width: auto;
+            }
+
+            a {
+                color: #1a73e8;
+                font-size: 0.9em;
+            }
+
+            .card{
+                width: 50%;
+                height: 100%;
+            }
+
+            img.card {
+                object-fit: contain;
+                object-position: center;
+            }
+
+            .button {
+                display: inline-block;
+                cursor: pointer;
+                user-select: none;
+                outline: none;
+                border: none;
+                background: #262626;
+                --squircle-smooth: 0.6;
+                --squircle-radius: 24px;
+                mask-image: paint(squircle);
+                transition: 150ms;
+            }
+
+            .button a {
+                font-family: "Inter", sans-serif;
+                font-size: 1em;
+                text-decoration: none;
+                display: inline-block;
+                padding: 0.6em 1em;
+                color: white;
+
+            }
+
+            ::selection {
+                background: #262626;
+                color: white;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="holder">
+        <span class="card">
+            <h1>Stále ve vývoji!</h1>
+            <p>Pilně pracujeme na zprovoznění platformy co nejdříve.</p>
+            <span class="actions">
+                <a href="mailto:info@betreg.org">info@betreg.org</a></span>
+        </span>
+        <img class="card" src="./assets/confused chiken.svg"></img>
+    </div>
+
+    <script defer>
+        const code = `
+const drawSquircle=(ctx,geom,radii,smooth,lineWidth,color)=>{const defaultFill=color;const lineWidthOffset=lineWidth/2;ctx.beginPath();ctx.lineTo(radii[0],lineWidthOffset);ctx.lineTo(geom.width-radii[1],lineWidthOffset);ctx.bezierCurveTo(geom.width-radii[1]/smooth,lineWidthOffset,geom.width-lineWidthOffset,radii[1]/smooth,geom.width-lineWidthOffset,radii[1]);ctx.lineTo(geom.width-lineWidthOffset,geom.height-radii[2]);ctx.bezierCurveTo(geom.width-lineWidthOffset,geom.height-radii[2]/smooth,geom.width-radii[2]/smooth,geom.height-lineWidthOffset,geom.width-radii[2],geom.height-lineWidthOffset);ctx.lineTo(radii[3],geom.height-lineWidthOffset);ctx.bezierCurveTo(radii[3]/smooth,geom.height-lineWidthOffset,lineWidthOffset,geom.height-radii[3]/smooth,lineWidthOffset,geom.height-radii[3]);ctx.lineTo(lineWidthOffset,radii[0]);ctx.bezierCurveTo(lineWidthOffset,radii[0]/smooth,radii[0]/smooth,lineWidthOffset,radii[0],lineWidthOffset);ctx.closePath();if(lineWidth){ctx.strokeStyle=defaultFill;ctx.lineWidth=lineWidth;ctx.stroke()}else{ctx.fillStyle=defaultFill;ctx.fill()}};class SquircleClass{static get contextOptions(){return{alpha:true}}static get inputProperties(){return["--squircle-radius","--squircle-radius-top-left","--squircle-radius-top-right","--squircle-radius-bottom-right","--squircle-radius-bottom-left","--squircle-smooth","--squircle-outline","--squircle-fill"]}paint(ctx,geom,properties){const smoothRatio=10;const distanceRatio=1.8;const squircleSmooth=parseFloat(properties.get("--squircle-smooth")*smoothRatio);const individualRadiiProps=SquircleClass.inputProperties.slice(1,5);let squircleRadii=individualRadiiProps.map(prop=>{const value=properties.get(prop);return value?parseInt(value,10)*distanceRatio:NaN});let shorthand_R;if(squircleRadii.some(isNaN)){const radiusRegex=/([0-9]+[a-z%]*)/g;const radius_shorthand=properties.get("--squircle-radius").toString();const matches=radius_shorthand.match(radiusRegex);if(matches){shorthand_R=matches.map(val=>parseInt(val,10)*distanceRatio);while(shorthand_R.length<4){if(shorthand_R.length===1){shorthand_R.push(shorthand_R[0])}else if(shorthand_R.length===2){shorthand_R=[shorthand_R[0],shorthand_R[1],shorthand_R[0],shorthand_R[1]]}else if(shorthand_R.length===3){shorthand_R=[shorthand_R[0],shorthand_R[1],shorthand_R[2],shorthand_R[1]]}}}else{const defaultRadius=squircleRadii.every(isNaN)?8*distanceRatio:0;shorthand_R=[defaultRadius,defaultRadius,defaultRadius,defaultRadius]}}squircleRadii=squircleRadii.map((val,i)=>isNaN(val)?shorthand_R[i]:val);const squrcleOutline=parseFloat(properties.get("--squircle-outline"),10);const squrcleColor=properties.get("--squircle-fill").toString();const isSmooth=()=>{if(typeof properties.get("--squircle-smooth")[0]!=="undefined"){if(squircleSmooth===0){return 1}return squircleSmooth}else{return 10}};const isOutline=()=>{if(squrcleOutline){return squrcleOutline}else{return 0}};const isColor=()=>{if(squrcleColor){return squrcleColor}else{return"#f45"}};const maxRadius=Math.max(...squircleRadii);if(maxRadius<geom.width/2&&maxRadius<geom.height/2){drawSquircle(ctx,geom,squircleRadii,isSmooth(),isOutline(),isColor())}else{const minRadius=Math.min(geom.width/2,geom.height/2);drawSquircle(ctx,geom,squircleRadii.map(()=>minRadius),isSmooth(),isOutline(),isColor())}}}if(typeof registerPaint!=="undefined"){registerPaint("squircle",SquircleClass)}
+`;
+
+        // Create a Blob from the code string
+        const blob = new Blob([code], { type: "application/javascript" });
+
+        // Create a URL for the Blob
+        const blobURL = URL.createObjectURL(blob);
+
+        // Register the paint worklet using the Blob URL
+        CSS.paintWorklet.addModule(blobURL);
+    </script>
 </body>
+
 </html>
