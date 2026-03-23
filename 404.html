@@ -145,6 +145,23 @@
                 color: white;
             }
     </style>
+            <link
+      rel="icon"
+      type="image/x-icon"
+      href="data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22132.404%22%20viewBox%3D%220%200%2026.458%2035.032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M13.246%2034.867q-3.895%200-6.838-1.828-2.943-1.83-4.593-5.095-1.65-3.267-1.65-7.57%200-3.147.697-6.116a26.5%2026.5%200%200%201%201.94-5.528q1.24-2.56%202.891-4.483%201.65-1.922%203.573-3.002%201.922-1.08%203.963-1.08t3.964%201.08%203.572%203.002q1.65%201.923%202.892%204.483a26.5%2026.5%200%200%201%201.94%205.528%2026.7%2026.7%200%200%201%20.697%206.116q0%204.303-1.65%207.57-1.65%203.265-4.585%205.095-2.934%201.828-6.813%201.828z%22%20vector-effect%3D%22non-scaling-stroke%22%20style%3D%22font-size%3A12px%3Bfill%3A%23000%3Bfill-rule%3Aevenodd%3Bstroke%3A%23000%3Bstroke-width%3A.0870975mm%3Bstroke-linecap%3Around%22%2F%3E%3C%2Fsvg%3E"
+    />
+    <script defer>
+        const lightFavicon = "data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22132.404%22%20viewBox%3D%220%200%2026.458%2035.032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M13.246%2034.867q-3.895%200-6.838-1.828-2.943-1.83-4.593-5.095-1.65-3.267-1.65-7.57%200-3.147.697-6.116a26.5%2026.5%200%200%201%201.94-5.528q1.24-2.56%202.891-4.483%201.65-1.922%203.573-3.002%201.922-1.08%203.963-1.08t3.964%201.08%203.572%203.002q1.65%201.923%202.892%204.483a26.5%2026.5%200%200%201%201.94%205.528%2026.7%2026.7%200%200%201%20.697%206.116q0%204.303-1.65%207.57-1.65%203.265-4.585%205.095-2.934%201.828-6.813%201.828z%22%20vector-effect%3D%22non-scaling-stroke%22%20style%3D%22font-size%3A12px%3Bfill%3A%23000%3Bfill-rule%3Aevenodd%3Bstroke%3A%23000%3Bstroke-width%3A.0870975mm%3Bstroke-linecap%3Around%22%2F%3E%3C%2Fsvg%3E";
+        const darkFavicon = "data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22132.404%22%20viewBox%3D%220%200%2026.458%2035.032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M13.246%2034.867q-3.895%200-6.838-1.828-2.943-1.83-4.593-5.095-1.65-3.267-1.65-7.57%200-3.147.697-6.116a26.5%2026.5%200%200%201%201.94-5.528q1.24-2.56%202.891-4.483%201.65-1.922%203.573-3.002%201.922-1.08%203.963-1.08t3.964%201.08%203.572%203.002q1.65%201.923%202.892%204.483a26.5%2026.5%200%200%201%201.94%205.528%2026.7%2026.7%200%200%201%20.697%206.116q0%204.303-1.65%207.57-1.65%203.265-4.585%205.095-2.934%201.828-6.813%201.828z%22%20vector-effect%3D%22non-scaling-stroke%22%20style%3D%22font-size%3A12px%3Bfill%3A%23d8d8d8%3Bfill-rule%3Aevenodd%3Bstroke%3Anone%3Bstroke-width%3A.0870975mm%3Bstroke-linecap%3Around%22%2F%3E%3C%2Fsvg%3E";
+
+        const favicon = document.querySelector("link[rel='icon']");
+
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            favicon.href = darkFavicon;
+        } else {
+            favicon.href = lightFavicon;
+        }
+    </script>
 </head>
 
 <body>
